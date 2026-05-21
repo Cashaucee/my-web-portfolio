@@ -1,0 +1,1145 @@
+/* ================================================
+   GLOBAL STYLES
+   ================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+  /* Set this to the height of your navbar (e.g., 80px) */
+  /* Adding an extra 20px for some nice padding */
+  scroll-padding-top: 50px; 
+  scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Roboto", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 200;
+    background-color: #000000 !important;
+    color: #333;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
+h1:hover{
+    background: white !important;
+    color: #000000 !important;
+    transform: translate(-3px, -3px);
+    box-shadow: 11px 11px 0px 0px #000000 !important;
+}
+/* ================================================
+   NAVIGATION BAR
+   ================================================ */
+
+#navbar {
+    font-family: 'Roboto Slab', sans-serif;
+    background-color: #e9f4ff;
+    border-bottom: 3px solid #000000;
+}
+
+#navbar a{
+    border: #000000 solid 3px;
+    padding: 10px 15px;
+    border-radius: 0;
+    margin: 8px 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    color: #000000;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+#navbar a:hover {
+    background-color: #0d1117;
+    color: white;
+}
+
+
+/* ================================================
+   LANDING SECTION
+   ================================================ */
+
+/* --- Variables & Sections --- */
+.section-yellow {
+  background-color: #FFFF00;
+  min-height: 95vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* --- Layout Containers --- */
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5; /* Keeps text above stickers if they overlap */
+}
+
+.name-card {
+    background-color: white;
+    border: 6px solid black;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    
+    /* The Shadow makes it pop off the yellow background */
+    box-shadow: 20px 20px 0px 0px black;
+    
+    /* Responsiveness */
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Container for the name */
+.name-title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  cursor: default;
+  display: block;
+  white-space: normal; /* ✅ Allows the name to wrap on small screens */
+  word-break: break-word; /* ✅ Prevents letters from spilling outside the card */
+}
+
+/* Base style for each letter */
+.hover-letter {
+  display: inline-block; /* Critical for animation to work */
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy feel */
+  color: black;
+}
+
+/* The Hover Animation */
+.hover-letter:hover {
+  transform: translateY(-15px) scale(1.2) rotate(5deg);
+  color: #dd9145; /* Changes to one of your Post-it colors on hover */
+  text-shadow: 4px 4px 0px #000; /* Adds a blocky shadow behind the letter */
+}
+
+/* Make every other letter tilt the opposite way */
+.hover-letter:nth-child(even):hover {
+  transform: translateY(-15px) scale(1.2) rotate(-5deg);
+}
+
+.job-title-box {
+    perspective: 1000px;
+    height: 40px;
+    cursor: pointer;
+    font-weight: 800;
+    width: fit-content;
+    max-width: 90%; /* Prevents the box from hitting the screen edges */
+    margin: 1.5rem auto;
+    text-align: center;
+}
+
+.title-front, .title-back {
+    display: block;
+    border: 3px solid black;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem); 
+    padding: 8px 15px; 
+    white-space: nowrap;
+    padding: 5px 20px;
+    background: white;
+    backface-visibility: hidden;
+    display: block;
+    width: 100%;        
+    text-align: center;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.title-back {
+  background: #87CEEB; /* Post-it Blue */
+  position: absolute;
+  top: 0;
+  transform: rotateX(-180deg);
+}
+
+.job-title-box:hover .title-front { transform: rotateX(180deg); }
+.job-title-box:hover .title-back { transform: rotateX(0deg); }
+
+/* Job Title */
+.motto {
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.motto-type {
+    font-family: 'Roboto Slab', sans-serif;
+    font-weight: bold;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    text-align: center;
+
+    /* Prevent overflow */
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+
+    white-space: normal;        /* Allows wrapping */
+    overflow-wrap: break-word;  /* Prevents text spill */
+    word-break: normal;
+    overflow: visible;
+}
+
+/* --- Custom Blocky Button --- */
+.btn-blocky {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 10px 25px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 900;
+  border: 3px solid black;
+  transition: all 0.1s ease;
+}
+
+.btn-blocky:hover {
+  background-color: #fff;
+  color: #000;
+  transform: translate(-4px, -4px);
+  box-shadow: 4px 4px 0px black;
+}
+
+/* --- Sticker System --- */
+.sticker {
+  position: absolute;
+  padding: 12px 24px;
+  border: 4px solid black;
+  font-weight: 900;
+  text-transform: uppercase;
+  box-shadow: 8px 8px 0px black;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  animation: float 5s ease-in-out infinite;
+  z-index: 15;
+}
+
+/* Show stickers on medium screens and up */
+@media (min-width: 768px) {
+  .sticker { display: block; }
+}
+
+.sticker:hover {
+  animation-play-state: paused;
+  transform: scale(1.1) rotate(0deg) !important;
+  box-shadow: 12px 12px 0px black;
+  z-index: 20;
+}
+
+/* Sticker Colors */
+.sticker-pink   { background-color: #FF6AD5; }
+.sticker-blue   { background-color: #87CEEB; }
+.sticker-green  { background-color: #98FF98; }
+.sticker-orange { background-color: #FFB347; }
+
+/* Sticker Positions */
+.sticker-pos-1 { top: 15%; left: 8%;  animation-delay: 0s; }
+.sticker-pos-2 { top: 18%; right: 8%; animation-delay: 1s; }
+.sticker-pos-3 { bottom: 10%; left: 12%; animation-delay: 2s; }
+.sticker-pos-4 { bottom: 8%; right: 15%; animation-delay: 0.5s; }
+
+/* --- Floating Animation --- */
+@keyframes float {
+  0%   { transform: translateY(0px) rotate(-3deg); }
+  50%  { transform: translateY(-25px) rotate(3deg); }
+  100% { transform: translateY(0px) rotate(-3deg); }
+}
+
+/* ================================================
+   ABOUT SECTION
+   ================================================ */
+
+#about {
+    background-color: #48C9B0;
+    border-top: 3px solid #000000;
+}
+
+#about h1{
+    background: #fffacd;
+    outline: 4px solid #000000;
+    box-shadow: 9px 9px 0px 0px #000000;
+    font-weight: bold;
+    font-weight: 800;
+    font-family: 'Roboto Flex', sans serif;
+    text-transform: uppercase;
+    color: #000000;
+    padding: 8px 18px;
+    margin-bottom: 6px;
+    transition: all 0.5s ease;
+}
+
+#about .bio {
+  background-color: #ffffff; /* Keeps the card readable */
+  outline: 4px solid #000000; /* Thick blocky border */
+  box-shadow: 11px 11px 0px 0px #000000; /* Hard, non-blurry shadow */
+  padding: 5px;
+  margin-bottom: 0px; /* Spacing between cards */
+  border-radius: 0px;  /* Keeps it blocky and sharp */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bio:hover {
+  transform:translate(-2px, -2px);
+  box-shadow: 13px 13px 0px 0px #000000 !important;
+}
+
+#bio-2 p{
+    text-align: left !important;
+    font-family: 'Roboto Mono', monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400 !important;
+    color: #000000;
+    margin: 1% 0%;
+    padding: 0%;
+    font-weight: 700;
+}
+
+#about .accordion-item {
+    font-family: 'Roboto Mono', monospace !important;
+    background-color: #ffffff; /* Keeps the card readable */
+    outline: 4px solid #000000; /* Thick blocky border */
+    box-shadow: 11px 11px 0px 0px #000000; /* Hard, non-blurry shadow */
+    padding: 0px;
+    margin-bottom: 25px; /* Spacing between cards */
+    border-radius: 0px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.accordion-item:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 13px 13px 0px 0px #000000 !important;
+}
+
+#about button {
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #982c2c !important;
+    background-color: #def9de00;
+    font-weight: 800;
+    text-transform: uppercase !important;
+}
+
+#about p{
+    text-align: left !important;
+    font-family: 'Roboto Mono', monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 500;
+    color: #000000;
+    margin: 1% 0%;
+    padding: 0%;
+    font-weight: 700;
+}
+
+.personality-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.personality-tag {
+    display: inline-block;
+    white-space: nowrap;
+    background: #fffacd;
+    outline: 4px solid #000000;
+    box-shadow: 8px 8px 0px 0px #000000;
+    font-weight: bold;
+    font-family: 'Roboto Mono', monospace;
+    text-transform: uppercase;
+    color: #000000;
+    padding: 8px 18px;
+    margin: 0px 6px 6px;
+    transition: all 0.2s ease;
+}
+
+.personality-tag:hover {
+  background: white;
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0px 0px #000000;
+}
+
+/* ================================================
+   IMAGE PLACEHOLDER -- ABOUT SECTION
+   ================================================ */
+
+.img-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: block;
+
+  background-color: #cab5b5; /* Keeps the card readable */
+  outline: 4px solid #000000; /* Thick blocky border */
+  box-shadow: 13px 13px 0px 0px #000000; /* Hard, non-blurry shadow */
+  padding: 20px;
+  margin-bottom: 25px; /* Spacing between cards */
+  border-radius: 0px;  /* Keeps it blocky and sharp */
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.img-placeholder:hover {
+  transform:translate(-3px, -3px);
+  box-shadow: 16px 16px 0px 0px #000000 !important;
+}
+
+/* ================================================
+   PROJECTS SECTION & CAROUSEL
+   ================================================ */
+
+#projects {
+    background-color: #F4D03F;
+}
+
+#projects h1 {
+    background: #fffacd;
+    outline: 4px solid #000000;
+    box-shadow: 9px 9px 0px 0px #000000;
+    font-weight: bold;
+    font-weight: 800;
+    font-family: 'Roboto Flex', sans serif;
+    text-transform: uppercase;
+    color: #000000;
+    padding: 8px 18px;
+    margin-bottom: 6px;
+    transition: all 0.5s ease;
+}
+
+#projects h2 {
+    background: #fffacd;
+    border: 4px solid #000000;
+    box-shadow: 6px 6px 0px 0px #000000;
+    font-weight: bold;
+    font-weight: 800;
+    font-family: 'Roboto Flex', sans serif;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: #000000;
+    padding: 8px 18px;
+    margin-bottom: 6px;
+    transition: all 0.5s ease;
+}
+
+#projects h5 {
+    font-size: 2.5vw; 
+    font-weight: bold;
+}
+
+.carousel-dark {
+    outline: 6px solid #000000;
+    height: 50vh;
+    min-height: 200px;
+    overflow: hidden;
+    box-shadow: 10px 10px 0px 0px #000000;
+    background-color: black;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 50vh;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    height: 100% !important; /* Forces the image to touch the bottom border */
+    width: 100%;
+    display: block;
+    object-fit: cover; /* Prevents the image from looking squished */
+    object-position: center;
+}
+
+.carousel-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-bottom: 6px solid #000000;;
+    color: white;
+    padding: 12px 15px;
+    z-index: 10;
+}
+
+.carousel-title h5 {
+    margin: 0;
+    font-family: "Roboto Serif", serif;
+    font-weight: 300 !important;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: white;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(248, 241, 241, 0.85);
+    border: 3px solid rgb(0, 0, 0);
+    padding: 12px 15px;
+    z-index: 10;
+}
+
+.carousel-caption p {
+    color: rgb(4, 4, 4);
+    font-family: "Roboto Flex", sans-serif;
+    font-weight: 300;
+    font-size: 0.90rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.carousel-indicators {
+    display: none !important;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    border: 3px solid rgb(90, 36, 36);
+    background-color: rgba(123, 102, 102, 0.7) !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: 100px;
+    top: 50% !important;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(255, 159, 112, 0.964) !important;
+}
+
+#projects h2 {
+    transition: all 0.3s ease;
+}
+
+#projects h2:hover {
+    background-color: #0d1117;
+    color: white !important;
+}
+/* ================================================
+   TOOLS SECTION
+   ================================================ */
+
+#tools {
+    background-color: #EB984E;
+}
+#tools h1 {
+    background: #fffacd;
+    outline: 4px solid #000000;
+    box-shadow: 9px 9px 0px 0px #000000;
+    font-weight: bold;
+    font-weight: 800;
+    font-family: 'Roboto Flex', sans serif;
+    text-transform: uppercase;
+    color: #000000;
+    padding: 8px 18px;
+    margin-bottom: 6px;
+    transition: all 0.5s ease;
+}
+
+.tool-border {
+    border: #000000 solid 5px;
+    padding: 15px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    background-color: #4E9FEB;
+    border: 4px solid #000000;
+    box-shadow: 10px 10px 0px 0px #000000;
+    transition: all 0.5s ease;
+}
+
+.tool-border:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 14px 14px 0px 0px #000000;
+}
+
+.tool-border h2 {
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 1% 0% 10% 0%;
+    padding: 1px 10px 1px;
+    color: rgb(255, 255, 255);
+    border: 2px solid black;
+    background-color: black;
+}
+
+.tool-border img {
+    transition: all 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tool-border img:hover {
+    transform: rotate(-10deg);
+}
+
+.tool-border > div.d-flex {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.tool-border > div.d-flex img {
+    flex-basis: calc(50% - 20px);
+    max-width: 50%;
+    object-fit: contain;
+    height: auto;
+}
+
+/* ================================================
+   CONTACT SECTION
+   ================================================ */
+
+#contact {
+    height: auto;
+    background-color: #DCAE96;
+    padding: 2rem !important;
+    overflow-x: hidden;
+}
+
+#contact h1 {
+    outline: #000000 solid 5px;
+    font-family: 'Roboto Flex', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    padding: 2% 2%;
+    text-align: center;
+    margin: 0 25% 2%;
+    background-color: #fffacd;
+    box-shadow: 8px 8px 0px 0px #000000; 
+    border-radius: 0px;
+    transition: all 0.5s ease;
+}
+
+/* ================================================
+   CONTACT INFO BOXES
+   ================================================ */
+
+.col-lg-5 > div[class*="bg-white"] {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.contact-info{
+    border: #000000 solid 5px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    font-family: 'Roboto Mono', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.contact-info:hover {
+    background-color: #000000 !important;
+    color: white !important;
+    transform: scale(1.05);
+}
+
+/* ================================================
+   FORM STYLING
+   ================================================ */
+
+#contact form {
+    font-family: 'Roboto Flex', sans-serif;
+}
+.form-input {
+    border: 4px solid #000000 !important;
+    border-radius: 0;
+    padding: 12px 10px !important;
+    
+}
+
+.form-input:focus {
+    border: 4px solid #000000 !important;
+    box-shadow: none;
+    outline: none;
+    background-color: #fff;
+}
+
+.btn.w-100 {
+    padding: 18px 10px !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+}
+
+/* ================================================
+   SOCIAL MEDIA ICONS
+   ================================================ */
+
+.social-media-icons {
+    margin-top: 20px;
+}
+
+.social-circle {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.social-icon {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon:hover .social-circle {
+    transform: scale(1.15);
+}
+
+.social-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+/* ================================================
+   FOOTER
+   ================================================ */
+
+footer {
+    padding: 0 !important;
+}
+
+.footer-dark {
+    background-color: #1a2332 !important;
+}
+
+.footer-content {
+    padding: 0.8rem 1.5rem;
+    gap: 20px;
+}
+
+.footer-copyright {
+    border: 2px solid white;
+    padding: 8px 15px;
+    flex-shrink: 0;
+}
+
+.footer-copyright p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.back-to-top-btn {
+    border: 2px solid white;
+    padding: 8px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.back-to-top-btn:hover {
+    background-color: white;
+    color: #000000;
+    transform: scale(1.05);
+}
+
+/* ================================================
+   MEDIA QUERIES - TABLET (max-width: 768px)
+   ================================================ */
+
+@media (max-width: 768px) {
+
+    #landing h2 {
+        font-size: 3rem;
+        margin: 15% 8% 3%;
+    }
+
+    #landing h4 {
+        margin: 2% 20%;
+    }
+
+    #landing p {
+        margin: 2% 20% 3%;
+    }
+
+    #contact {
+        height: auto;
+        min-height: auto;
+        padding: 1.5rem !important;
+    }
+
+    #contact h1 {
+        margin: 2% auto 2%;
+        font-size: 1.8rem;
+    }
+
+    .carousel-title h5 {
+        font-size: 0.8rem;
+    }
+
+
+
+    .carousel-item img {
+        height: 100% !important;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .row.g-3 {
+        --bs-gutter-x: 0.75rem;
+    }
+
+    .footer-content {
+        gap: 5px;
+        padding: 0.6rem 0.8rem;
+        justify-content: space-between !important;
+    }
+
+    .footer-copyright {
+        padding: 6px 10px;
+        flex-shrink: 0;
+    }
+
+    .footer-copyright p {
+        font-size: 0.75rem;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .back-to-top-btn {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+        flex-shrink: 0;
+    }
+
+    /* ✅ Your existing rules stay — ADD these below them */
+
+    /* Fix: Name size on tablet screens */
+    .name-title {
+        font-size: clamp(2.8rem, 10vw, 4rem) !important;
+        line-height: 1.1;
+        margin-top: 0.3rem !important;
+        word-break: break-word;
+        white-space: normal;
+    }
+
+    /* Fix: Reduce card padding so it doesn't grow too tall */
+    .name-card {
+        padding: 2.5rem 1.5rem;       /* Was 4rem 2rem — too much vertical space */
+        box-shadow: 12px 12px 0px 0px black; /* Slightly smaller shadow */
+        width: 92%;
+    }
+
+    /* Fix: Reduce spacing inside card */
+    .name-card hr {
+        margin: 0.75rem 0;
+    }
+
+    /* Fix: Motto overflow — cap it at card width */
+
+
+    /* Fix: Button margin */
+    .btn-blocky {
+        margin-top: 1rem;
+    }
+
+    /* Fix: Name divs stack and center cleanly (since you split first/last name) */
+    .name-title div {
+        margin-top: 0.3rem !important;
+        display: block;
+        text-align: center;
+        line-height: 1.1;
+    }
+
+}
+
+/* ================================================
+   MEDIA QUERIES - MOBILE (max-width: 576px)
+   ================================================ */
+
+@media (max-width: 576px) {
+   
+    #landing h2 {
+        font-size: 2rem;
+        margin: 20% 5% 5%;
+        padding: 5%;
+    }
+
+    #landing h4 {
+        font-size: 6rem;
+        margin: 5% 10%;
+        padding: 8px;
+    }
+
+    #landing p {
+        font-size: 0.9rem;
+        margin: 5% 10% 10%;
+        padding: 8px;
+    }
+
+    #landing button {
+        padding: 15px 30px;
+        font-size: 0.85rem;
+    }
+
+    #contact {
+        height: auto;
+        min-height: 70vh;
+        padding: 1.5rem 0 !important;
+    }
+
+    #contact h1 {
+        font-size: 1.5rem;
+        margin: 2% 5% 2%;
+        padding: 3%;
+    }
+
+    #navbar a {
+        margin: 5px 10px;
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    .carousel-title h5 {
+        font-size: 0.65rem;
+    }
+
+    .carousel-dark {
+        height: 35vh;
+        min-height: 150px;
+    }
+
+    .carousel-dark img {
+        width: 100%;
+        height: 100% !important;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+    
+    .carousel-caption {
+        display: none;
+    }
+
+    .tool-border {
+        padding: 8px;
+    }
+
+    .tool-border h2 {
+        font-size: 1rem;
+    }
+
+    .img-placeholder {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .social-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        border: 2px solid #000000;
+    }
+
+    .social-media-icons {
+        margin-top: 15px;
+    }
+
+    .row.g-3 {
+        row-gap: 1rem !important;
+    }
+
+    .row.g-3 > [class*="col-"] {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .title-front, .title-back {
+    padding: 6px 10px;
+    border-width: 3px; /* Slightly thinner border for small screens */
+    }
+
+    .name-card {
+        box-shadow: 8px 8px 0px 0px black;
+        padding: 1rem 1rem !important; /* ✅ Also reduce padding so content has more space */
+    }
+
+    .name-title div {
+        margin-top: 0.3rem !important;
+        display: block;
+        text-align: center;
+        line-height: 1.1;
+    }
+
+    .name-title {
+        font-size: clamp(2.8rem, 10vw, 4rem) !important;
+        line-height: 1.1;
+        margin-top: 0.3rem !important;
+        word-break: break-word;
+        white-space: normal;
+    }
+
+        /* Fix: Reduce card padding so it doesn't grow too tall */
+    .name-card {
+        padding: 2.5rem 1.5rem;       /* Was 4rem 2rem — too much vertical space */
+        box-shadow: 12px 12px 0px 0px black; /* Slightly smaller shadow */
+        width: 92%;
+    }
+
+    /* Fix: Reduce spacing inside card */
+    .name-card hr {
+        margin: 0.75rem 0;
+    }
+
+    .job-title-box {
+        margin-top: -2%;
+    }
+
+
+    /* Fix: Button margin */
+    .btn-blocky {
+        margin-top: 1rem;
+    }
+
+}
+
+/* ================================================
+   MEDIA QUERIES - EXTRA SMALL (max-width: 480px)
+   ================================================ */
+
+@media (max-width: 480px) {
+    .footer-content {
+        flex-direction: column;
+        justify-content: flex-start !important;
+        gap: 8px;
+    }
+
+    .footer-copyright {
+        width: 100%;
+    }
+
+    .footer-copyright p {
+        white-space: normal;
+    }
+
+    .back-to-top-btn {
+        align-self: flex-end;
+    }
+    
+    .sticker {
+        display: none !important; /* Hide stickers on very small screens */
+    }
+}
+
+/* ================================================
+   MEDIA QUERIES - LANDSCAPE / SHORT SCREENS
+   ================================================ */
+
+@media (max-height: 800px) and (orientation: landscape) {
+
+    /* Name card: smaller box, not just shorter */
+    .name-card {
+        padding: 1.5rem 2.5rem !important;
+        box-shadow: 8px 8px 0px 0px black;
+        width: 82% !important;
+        max-width: 750px !important;
+    }
+
+    .name-title {
+        font-size: clamp(2.8rem, 6vw, 4rem) !important;
+        line-height: 1;
+    }
+
+    .job-title-box {
+        height: 30px;
+        margin: 0.4rem auto;
+    }
+
+    .title-front, .title-back {
+        font-size: 0.75rem;
+        padding: 3px 10px;
+    }
+
+    .motto-type {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+
+    .btn-blocky {
+        margin-top: 0.5rem;
+        padding: 5px 14px;
+        font-size: 0.85rem;
+    }
+
+    /* Carousel: constrain width so it looks like a box too */
+    .carousel-dark,
+    .carousel-item {
+        height: 38vw !important;    /* ← height relative to width = boxy proportion */
+        max-height: 260px !important;
+        min-height: 0 !important;
+    }
+
+    /* Carousel text */
+    .carousel-caption {
+        padding: 4px 10px;
+    }
+
+    .carousel-caption p {
+        font-size: 0.72rem;
+        line-height: 1.2;
+    }
+
+    .carousel-title {
+        padding: 5px 10px;
+    }
+
+    .carousel-title h5 {
+        font-size: 0.68rem;
+    }
+}
