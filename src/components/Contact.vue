@@ -39,7 +39,6 @@
             });
 
             const result = await response.json();
-
             if(result.success){
                 console.log(result)
 
@@ -53,6 +52,11 @@
             notyf.error("Failed to send message");
 
         } finally {
+            fname.value = "";
+            lname.value = "";
+            email.value = "";
+            message.value = "";
+
             resetRecaptcha();
         }
     }
@@ -130,7 +134,7 @@
                     </div>
                 </div>
                 <div class="mb-2">
-                    <input type="email" class="form-control form-input" id="exampleInputEmail1" placeholder="Email address" aria-describedby="emailHelp">
+                    <input type="email" v-model="email" class="form-control form-input" id="exampleInputEmail1" placeholder="Email address" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <textarea v-model="message" class="form-control form-input" id="Message" rows="3" placeholder="Message"></textarea>
