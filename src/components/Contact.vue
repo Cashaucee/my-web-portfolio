@@ -138,7 +138,7 @@
                 <div class="d-flex justify-content-end mt-1 mb-3">
                     <div ref="recaptchaContainer"></div>
                 </div>
-                <button type="submit" class="btn btn-dark w-100" :disabled="isLoading || !recaptchaToken.value">{{isLoading ? "Sending..." : "Submit"}}</button>
+                <button type="submit" class="btn btn-dark w-100" :disabled="isLoading || !recaptchaToken">{{isLoading ? "Sending..." : "Submit"}}</button>
 
                 </form>
             </div>
