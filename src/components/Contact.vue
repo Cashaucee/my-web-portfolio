@@ -59,7 +59,7 @@
 
     // recaptcha integration
 
-    const SITE_KEY = "6LeRDPUsAAAAAMY8JpzR_9JcXyNyZu_AzEFsTF11";
+    const SITE_KEY = "6LeXX_UsAAAAAGZhb_7Ei0Hg4IQ8HiUC9CptBSPr";
 
     const recaptchaContainer = ref(null);
     const recaptchaWidgetID = ref(null);
